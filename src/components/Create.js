@@ -83,9 +83,13 @@ const Create = (props) => {
       setAuthor(props.fillCreate.Author);
       setGallery(props.fillCreate.GaleryId);
       setCreateEditBTN(false);
-      console.log("ovo je id galerije" + JSON.stringify(props.fillCreate));
     }
   }, [props.fillCreate]);
+
+  const handleReturn = () => {
+    setCreateEditBTN(true);
+    handleClear();
+  };
 
   return (
     <center>
@@ -93,7 +97,7 @@ const Create = (props) => {
         <h3>{createEditBTN ? "Create" : "Edit"}</h3>
         <div style={{ marginTop: "40px" }}>
           <label>Gallery:</label>
-          <select style={{ marginLeft: "200px" }} onChange={handleInputChangeC} value={gallery}>
+          <select style={{ marginLeft: "110px" }} onChange={handleInputChangeC} value={gallery}>
             {gallerySelect.map((gallery) => (
               <option key={gallery.Id} value={gallery.Id}>
                 {gallery.Name}
@@ -103,25 +107,30 @@ const Create = (props) => {
         </div>
         <div>
           <label>Name:</label>
-          <input style={{ marginLeft: "165px" }} type="text" value={name} onChange={handleInputChangeName} />
+          <input style={{ marginLeft: "40px" }} type="text" value={name} onChange={handleInputChangeName} />
         </div>
         <div>
           <label>Year:</label>
-          <input style={{ marginLeft: "178px" }} type="text" value={year} onChange={handleInputChangeYear} />
+          <input style={{ marginLeft: "53px" }} type="text" value={year} onChange={handleInputChangeYear} />
         </div>
         <div>
           <label>Price:</label>
-          <input style={{ marginLeft: "81px" }} type="text" value={price} onChange={handleInputChangePrice} />
+          <input style={{ marginLeft: "49px" }} type="text" value={price} onChange={handleInputChangePrice} />
         </div>
         <div>
           <label>Author:</label>
-          <input style={{ marginLeft: "50px" }} type="text" value={author} onChange={handleInputChangeAuthor} />
+          <input style={{ marginLeft: "34px" }} type="text" value={author} onChange={handleInputChangeAuthor} />
         </div>
-        <div style={{ marginTop: "20px" }}>
-          <button className="btn btn-primary btn-sm" style={{ backgroundColor: "lightgray", color: "black" }} onClick={handleClear}>
+        <div style={{ marginTop: "30px", marginBottom: "20px" }}>
+          {!createEditBTN && (
+            <button className="btn btn-danger btn-sm" style={{ color: "black" }} onClick={handleReturn}>
+              Return to create
+            </button>
+          )}
+          <button className="btn btn-primary btn-sm" style={{ marginLeft: "20px", backgroundColor: "lightgray", color: "black" }} onClick={handleClear}>
             Clear
           </button>
-          <button className="btn btn-primary btn-sm" style={{ marginLeft: "20px", backgroundColor: "yellow", color: "black" }} onClick={createEditBTN ? handleCreate : handleEdit}>
+          <button className="btn btn-primary btn-sm" style={{ marginLeft: "20px", backgroundColor: "lightblue", color: "black" }} onClick={createEditBTN ? handleCreate : handleEdit}>
             {createEditBTN ? "Create" : "Edit"}
           </button>
         </div>

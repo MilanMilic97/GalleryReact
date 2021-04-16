@@ -42,7 +42,7 @@ const Login = (props) => {
           <button className="btn btn-primary btn-sm" style={{ backgroundColor: "lightgray", color: "black" }} onClick={props.ret}>
             Return
           </button>
-          <button className="btn btn-primary btn-sm" style={{ marginLeft: "20px", backgroundColor: "yellow", color: "black" }} onClick={handleLogin}>
+          <button className="btn btn-primary btn-sm" style={{ marginLeft: "20px", backgroundColor: "lightblue", color: "black" }} onClick={handleLogin}>
             Log in
           </button>
           <p id="info"></p>
