@@ -2,11 +2,25 @@ import React, { useState } from "react";
 import Table from "./Table";
 import Registration from "./Registration";
 import Login from "./Login";
+import Create from "./Create";
 
 const Gallery = () => {
   const [hiderReg, setHiderReg] = useState(false);
   const [hiderLog, setHiderLog] = useState(false);
   const [hiderDiv, setHiderDiv] = useState(true);
+  const [pictures, setPictures] = useState([]);
+  const [contrVar, setContrVar] = useState(1);
+  const [pictureForEdit, setPictureForEdit] = useState({});
+
+  const loadTable = () => {
+    //ako radis na nacin ispod, dolazi ti i kreiran hotel
+    // NACIN NA KOJI DODAJEMO ONO STO SMO UKUCALI NA KRAJ TABELE
+    // var temp = hoteli.slice();
+    //     temp.push(hotel);
+
+    setContrVar(contrVar + 1);
+    console.log("u load table sam");
+  };
 
   const handleReg = () => {
     setHiderReg(!hiderReg);
@@ -35,7 +49,8 @@ const Gallery = () => {
       </center>
       {hiderReg && <Registration ret={handleReg} />}
       {hiderLog && <Login ret={handleLog} />}
-      <Table />
+      <Table pictures={pictures} setPictures={setPictures} loadAgain={loadTable} contrVar={contrVar} setForEdit={setPictureForEdit} />
+      <Create loadAgain={loadTable} fillCreate={pictureForEdit} />
     </div>
   );
 };

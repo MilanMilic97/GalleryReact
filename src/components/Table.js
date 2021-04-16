@@ -1,14 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Table = () => {
-  const [pictures, setPictures] = useState([]);
+const Table = (props) => {
+  var { pictures, setPictures, loadAgain, setForEdit } = props;
 
   axios.get(`http://localhost:59783/api/pictures`).then((res) => {
     const pictures = res.data;
     setPictures(pictures);
   });
+
+  const handleDelete = (event) => {
+    fetch("http://localhost:59783/api/pictures/" + event.target.value, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
+    }).then(() => loadAgain());
+  };
+
+  const handleEdit = (event) => {
+    fetch("http://localhost:59783/api/pictures/" + event.target.value, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setForEdit(data));
+  };
 
   return (
     <center>
@@ -33,12 +55,12 @@ const Table = () => {
                   <td>{picture.Year}</td>
                   <td>{picture.GalleryName}</td>
                   <td>
-                    <button className="btn" value={picture.Id} /*onClick={handleDelete}*/>
+                    <button className="btn" value={picture.Id} onClick={handleDelete}>
                       Delete
                     </button>
                   </td>
                   <td>
-                    <button className="btn" value={picture.Id} /*onClick={handleEdit}*/>
+                    <button className="btn" value={picture.Id} onClick={handleEdit}>
                       Edit
                     </button>
                   </td>
