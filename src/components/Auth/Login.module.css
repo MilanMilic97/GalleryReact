@@ -1,0 +1,64 @@
+.actions {
+  text-align: right;
+}
+
+.actions button {
+  font: inherit;
+  cursor: pointer;
+  color: white;
+  background-color: #5f1f05a1;
+  border: 1px solid #8a2b06;
+  padding: 0.5rem 2rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #5a1a01;
+  border-color: #5a1a01;
+  color: white;
+}
+
+.actions .button--alt {
+  color: #8a2b06;
+}
+
+.actions .button {
+  background-color: #8a2b06;
+  color: white;
+}
+
+.input {
+  margin-left: 20%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.input label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.input input {
+  width: 15rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+}
+
+.regBtn button {
+  margin-left: 0;
+  padding: 9px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  color: black;
+}
+.regBtn button:hover {
+  background-color: #ffffff00;
+  border-color: white;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}

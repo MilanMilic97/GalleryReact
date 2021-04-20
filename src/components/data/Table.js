@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Table = (props) => {
   var { pictures, setPictures, loadAgain, setForEdit } = props;
 
-  axios.get(`http://localhost:59783/api/pictures`).then((res) => {
-    const pictures = res.data;
-    setPictures(pictures);
-  });
+  useEffect(() => {
+    axios.get(`http://localhost:59783/api/pictures`).then((res) => {
+      const pictures = res.data;
+      setPictures(pictures);
+    });
+  }, []);
 
   const handleDelete = (event) => {
     fetch("http://localhost:59783/api/pictures/" + event.target.value, {
@@ -31,7 +33,6 @@ const Table = (props) => {
       .then((res) => res.json())
       .then((data) => setForEdit(data));
   };
-
   return (
     <center>
       <div style={{ clear: "both" }}>
