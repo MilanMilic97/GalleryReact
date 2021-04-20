@@ -42,7 +42,7 @@ const Registration = (props) => {
     <Modal onHideReg={props.onHideRegClose}>
       <div className={classes.actions}>
         <center>
-          <h3>User registration</h3>
+          <h4>User registration</h4>
           <div className={classes.input}>
             <label>E-mail adress:</label>
             <input style={{ marginLeft: "62px" }} type="text" value={email} onChange={handleInputChangeE} />
@@ -53,7 +53,7 @@ const Registration = (props) => {
           </div>
           <div className={classes.input}>
             <label>Confirm password:</label>
-            <input style={{ marginLeft: "28px" }} type="password" value={confirmPassword} onChange={handleInputChangeCP} />
+            <input style={{ marginLeft: "25px" }} type="password" value={confirmPassword} onChange={handleInputChangeCP} />
           </div>
           <div style={{ marginTop: "20px" }}>
             <button onClick={props.onHideReg}>Return</button>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import classes from "./Menu.module.css";
 
-const Menu = () => {
+const Menu = (props) => {
   const [galleries, setGalleries] = useState([]);
 
   useEffect(() => {
@@ -9,9 +10,16 @@ const Menu = () => {
       .then((gallery) => setGalleries(gallery));
   }, []);
 
+  const handleInputChange = (event) => {
+    props.gallerySelected(event.target.value);
+  };
+
   return (
-    <div>
-      <select>
+    <div className={classes["custom-dropdown"]}>
+      <select style={{ paddingTop: "5px" }} onChange={handleInputChange} defaultValue={1}>
+        <option default hidden>
+          Select gallery
+        </option>
         {galleries.map((gallery) => (
           <option key={gallery.Id} value={gallery.Id}>
             {gallery.Name}

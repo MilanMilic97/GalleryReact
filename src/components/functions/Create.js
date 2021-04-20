@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from "react";
+import classes from "./Create.module.css";
 
 const Create = (props) => {
-  const [gallery, setGallery] = useState(1);
   const [name, setName] = useState("");
   const [year, setYear] = useState("");
   const [author, setAuthor] = useState("");
   const [price, setPrice] = useState("");
-  const [gallerySelect, setGallerySelect] = useState([]);
   const [createEditBTN, setCreateEditBTN] = useState(true);
-
-  useEffect(() => {
-    fetch("http://localhost:59783/api/galleries")
-      .then((res) => res.json())
-      .then((gallery) => setGallerySelect(gallery));
-  }, []);
 
   const handleCreate = () => {
     let regInfo = {
@@ -21,7 +14,7 @@ const Create = (props) => {
       Year: year,
       Author: author,
       Price: price,
-      GaleryId: gallery,
+      GaleryId: props.gallerySelected,
     };
 
     fetch("http://localhost:59783/api/pictures/", {
@@ -31,9 +24,6 @@ const Create = (props) => {
     }).then(() => props.loadAgain());
   };
 
-  const handleInputChangeC = (event) => {
-    setGallery(event.target.value);
-  };
   const handleInputChangeName = (event) => {
     setName(event.target.value);
   };
@@ -52,9 +42,10 @@ const Create = (props) => {
     setYear("");
     setPrice("");
     setAuthor("");
-    setGallery(1);
   };
-
+  const handleCancel = () => {
+    props.cancelCreate(false);
+  };
   const handleEdit = () => {
     let regInfo = {
       Id: props.fillCreate.Id,
@@ -62,7 +53,7 @@ const Create = (props) => {
       Year: year,
       Author: author,
       Price: price,
-      GaleryId: gallery,
+      GaleryId: props.gallerySelected,
     };
 
     fetch("http://localhost:59783/api/pictures/" + props.fillCreate.Id, {
@@ -81,7 +72,6 @@ const Create = (props) => {
       setYear(props.fillCreate.Year);
       setPrice(props.fillCreate.Price);
       setAuthor(props.fillCreate.Author);
-      setGallery(props.fillCreate.GaleryId);
       setCreateEditBTN(false);
     }
   }, [props.fillCreate]);
@@ -93,45 +83,41 @@ const Create = (props) => {
 
   return (
     <center>
-      <div>
+      <div id="container" className={classes.create}>
         <h3>{createEditBTN ? "Create" : "Edit"}</h3>
         <div style={{ marginTop: "40px" }}>
-          <label>Gallery:</label>
-          <select style={{ marginLeft: "110px" }} onChange={handleInputChangeC} value={gallery}>
-            {gallerySelect.map((gallery) => (
-              <option key={gallery.Id} value={gallery.Id}>
-                {gallery.Name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
           <label>Name:</label>
-          <input style={{ marginLeft: "40px" }} type="text" value={name} onChange={handleInputChangeName} />
+          <input type="text" value={name} onChange={handleInputChangeName} />
         </div>
         <div>
           <label>Year:</label>
-          <input style={{ marginLeft: "53px" }} type="text" value={year} onChange={handleInputChangeYear} />
+          <input type="text" value={year} onChange={handleInputChangeYear} />
         </div>
         <div>
           <label>Price:</label>
-          <input style={{ marginLeft: "49px" }} type="text" value={price} onChange={handleInputChangePrice} />
+          <input type="text" value={price} onChange={handleInputChangePrice} />
         </div>
         <div>
           <label>Author:</label>
-          <input style={{ marginLeft: "34px" }} type="text" value={author} onChange={handleInputChangeAuthor} />
+          <input type="text" value={author} onChange={handleInputChangeAuthor} />
         </div>
         <div style={{ marginTop: "30px", marginBottom: "20px" }}>
           {!createEditBTN && (
-            <button className="btn btn-danger btn-sm" style={{ color: "black" }} onClick={handleReturn}>
-              Return to create
+            <button className={classes.btnCancel} onClick={handleReturn}>
+              Return
             </button>
           )}
-          <button className="btn btn-primary btn-sm" style={{ marginLeft: "20px", backgroundColor: "lightgray", color: "black" }} onClick={handleClear}>
+          {createEditBTN && (
+            <button className={classes.btnCancel} onClick={handleCancel}>
+              Cancel
+            </button>
+          )}
+          <button className={classes.btnClear} onClick={handleClear}>
             Clear
           </button>
-          <button className="btn btn-primary btn-sm" style={{ marginLeft: "20px", backgroundColor: "lightblue", color: "black" }} onClick={createEditBTN ? handleCreate : handleEdit}>
-            {createEditBTN ? "Create" : "Edit"}
+
+          <button className={classes.btnCreate} onClick={createEditBTN ? handleCreate : handleEdit}>
+            {createEditBTN ? "Create" : "Confirm"}
           </button>
         </div>
       </div>

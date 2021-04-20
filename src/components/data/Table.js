@@ -3,14 +3,16 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Table = (props) => {
-  var { pictures, setPictures, loadAgain, setForEdit } = props;
+  var { pictures, setPictures, loadAgain, setForEdit, gallery, contrVar, showEdit } = props;
 
   useEffect(() => {
-    axios.get(`http://localhost:59783/api/pictures`).then((res) => {
-      const pictures = res.data;
-      setPictures(pictures);
-    });
-  }, []);
+    if (gallery !== undefined) {
+      axios.get(`http://localhost:59783/api/getPicturesByGallery?id=` + gallery).then((res) => {
+        const pictures = res.data;
+        setPictures(pictures);
+      });
+    }
+  }, [gallery, contrVar]);
 
   const handleDelete = (event) => {
     fetch("http://localhost:59783/api/pictures/" + event.target.value, {
@@ -32,14 +34,16 @@ const Table = (props) => {
     })
       .then((res) => res.json())
       .then((data) => setForEdit(data));
+
+    showEdit(true);
   };
   return (
     <center>
       <div style={{ clear: "both" }}>
         <ul>
-          <table className="table table-bordered table-hover" style={{ width: "900px" }}>
+          <table className="table table-bordered table-hover" style={{ borderColor: "red", marginBottom: "50px", marginTop: "50px", backgroundColor: "white", width: "900px" }}>
             <tbody>
-              <tr style={{ backgroundColor: "lightblue" }}>
+              <tr style={{ color: "white", backgroundColor: "#2c0d00" }}>
                 <th>Name</th>
                 <th>Author</th>
                 <th>Price</th>

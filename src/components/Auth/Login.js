@@ -36,7 +36,7 @@ const Login = (props) => {
     <Modal onHideLog={props.onHideLog} info={props.info}>
       <div className={classes.actions}>
         <center>
-          <h3>User Login</h3>
+          <h4>User Login</h4>
           <div className={classes.input}>
             <label>E-mail adress:</label>
             <input type="text" value={email} onChange={handleInputChangeE} />

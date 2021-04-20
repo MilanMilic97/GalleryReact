@@ -37,11 +37,14 @@
 }
 
 .input label {
+  color: black;
+
   font-weight: bold;
   margin-right: 1rem;
 }
 
 .input input {
+  color: black;
   width: 15rem;
   border-radius: 5px;
   border: 1px solid #ccc;
