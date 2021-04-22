@@ -19,6 +19,10 @@ h3 {
   color: white;
 }
 
+p {
+  clear: both;
+}
+
 .create {
   background-color: white;
   width: 23%;
@@ -29,7 +33,6 @@ h3 {
   border-radius: 14px;
   padding: 3rem;
   box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
-  animation: slide-down 300ms ease-out forwards;
 }
 
 .btnCreate {

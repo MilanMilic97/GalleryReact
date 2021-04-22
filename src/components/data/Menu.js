@@ -16,7 +16,7 @@ const Menu = (props) => {
 
   return (
     <div className={classes["custom-dropdown"]}>
-      <select style={{ paddingTop: "5px" }} onChange={handleInputChange} defaultValue={1}>
+      <select style={{ paddingTop: "5px", cursor: "pointer" }} onChange={handleInputChange} defaultValue={1}>
         <option default hidden>
           Select gallery
         </option>

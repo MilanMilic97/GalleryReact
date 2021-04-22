@@ -5,26 +5,25 @@ import classes from "./Login.module.css";
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
+  //const [token, setToken] = useState("");
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    let logInfo = {
-      grant_type: "password",
-      username: email,
-      password: password,
-    };
-
+  const handleLogin = () => {
+    // let logInfo = {
+    //   grant_type: "password",
+    //   username: email,
+    //   password: password,
+    // };
+    let logString = "grant_type=password&username=" + email + "&password=" + password;
     fetch("http://localhost:59783/Token", {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-type": "application/json", Accept: "application/json" },
-      data: JSON.stringify(logInfo),
-    }).then((response) => {
-      setToken(response.access_token);
-    });
+      //  mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: logString,
+    })
+      .then((res) => res.json())
+      .then((data) => sessionStorage.setItem("token", data.access_token));
   };
-  console.log("ja sam tokeeeen" + token);
+  console.log("ja sam tokeeeen" + sessionStorage.getItem("token"));
   const handleInputChangeE = (event) => {
     setEmail(event.target.value);
   };

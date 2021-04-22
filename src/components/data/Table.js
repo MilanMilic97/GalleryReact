@@ -41,7 +41,7 @@ const Table = (props) => {
     <center>
       <div style={{ clear: "both" }}>
         <ul>
-          <table className="table table-bordered table-hover" style={{ borderColor: "red", marginBottom: "50px", marginTop: "50px", backgroundColor: "white", width: "900px" }}>
+          <table className="table table-bordered table-hover" style={{ borderColor: "red", marginBottom: "50px", marginTop: "50px", backgroundColor: "white", width: "60%" }}>
             <tbody>
               <tr style={{ color: "white", backgroundColor: "#2c0d00" }}>
                 <th>Name</th>

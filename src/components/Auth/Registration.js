@@ -28,6 +28,43 @@ const Registration = (props) => {
     });
   };
 
+  // if (email === "") {
+  //   setValidationName("Name is required");
+  //   valSuccess = false;
+  // } else if (email.match(/\d/)) {
+  //   setValidationName("Name can't contain numbers");
+  //   valSuccess = false;
+  // } else if (email.length > 120) {
+  //   console.log("usao sam u broj validacijau");
+  //   setValidationName("Name must be less than 120 characters");
+  //   valSuccess = false;
+  // } else {
+  //   setValidationName("");
+  // }
+  // if (password === "") {
+  //   setValidationName("Name is required");
+  //   valSuccess = false;
+  // } else if (password.length > 120) {
+  //   console.log("usao sam u broj validacijau");
+  //   setValidationName("Name must be less than 120 characters");
+  //   valSuccess = false;
+  // } else {
+  //   setValidationName("");
+  // }
+  // if (password === "") {
+  //   setValidationName("Name is required");
+  //   valSuccess = false;
+  // } else if (password.match(/\d/)) {
+  //   setValidationName("Name can't contain numbers");
+  //   valSuccess = false;
+  // } else if (password.length > 120) {
+  //   console.log("usao sam u broj validacijau");
+  //   setValidationName("Name must be less than 120 characters");
+  //   valSuccess = false;
+  // } else {
+  //   setValidationName("");
+  // }
+
   const handleInputChangeE = (event) => {
     setEmail(event.target.value);
   };

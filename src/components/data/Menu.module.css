@@ -1,13 +1,12 @@
 /* Custom dropdown */
 .custom-dropdown {
-  margin-left: 225px;
   margin-bottom: 15px;
   padding-right: 30px;
   height: 49.2px;
-  width: 174.6px;
+  width: 100%;
   font-size: 1.2em;
-  display: block;
   padding: 20px;
+  cursor: pointer;
 }
 
 .custom-dropdown select {
@@ -21,4 +20,5 @@
   border-radius: 10px;
   text-indent: 0.01px;
   text-overflow: "";
+  cursor: pointer;
 }

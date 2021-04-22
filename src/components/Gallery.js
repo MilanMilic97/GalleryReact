@@ -6,7 +6,7 @@ import Create from "./functions/Create";
 import Header from "./layout/Header";
 import Login from "./Auth/Login";
 import Registration from "./Auth/Registration";
-import Menu from "./data/Menu";
+//import Menu from "./data/Menu";
 import WelcomeNote from "./layout/WelcomeNote";
 
 const Gallery = () => {
