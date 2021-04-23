@@ -17,6 +17,8 @@ const Gallery = () => {
   const [contrVar, setContrVar] = useState(1);
   const [pictureForEdit, setPictureForEdit] = useState({});
   const [selectedGallery, setSelectedGallery] = useState();
+  const [token, setToken] = useState(null);
+  const [email, setEmail] = useState("");
 
   const loadTable = () => {
     //ako radis na nacin ispod, dolazi ti i kreiran hotel
@@ -48,11 +50,11 @@ const Gallery = () => {
 
   return (
     <Fragment>
-      {portalLogShower && <Login onHideLog={hideLog} info={portalLogShower} showRegDiv={showReg} />}
+      {portalLogShower && <Login email={setEmail} setToken={setToken} onHideLog={hideLog} info={portalLogShower} showRegDiv={showReg} />}
       {portalRegShower && <Registration onHideReg={hideReg} onHideRegClose={closeReg} />}
-      <Header onShowAuth={showLog} />
-      <WelcomeNote create={setShowCreate} gallerySelected={setSelectedGallery} gallery={selectedGallery} />
-      {selectedGallery !== undefined && <Table pictures={pictures} setPictures={setPictures} loadAgain={loadTable} contrVar={contrVar} setForEdit={setPictureForEdit} gallery={selectedGallery} showEdit={setShowCreate} />}
+      <Header token={token} setToken={setToken} onShowAuth={showLog} />
+      <WelcomeNote email={email} token={token} create={setShowCreate} gallerySelected={setSelectedGallery} gallery={selectedGallery} />
+      {selectedGallery !== undefined && <Table token={token} pictures={pictures} setPictures={setPictures} loadAgain={loadTable} contrVar={contrVar} setForEdit={setPictureForEdit} gallery={selectedGallery} showEdit={setShowCreate} />}
       {showCreate && <Create cancelCreate={setShowCreate} loadAgain={loadTable} fillCreate={pictureForEdit} gallerySelected={selectedGallery} />}
     </Fragment>
   );

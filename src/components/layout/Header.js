@@ -8,7 +8,7 @@ const Header = (props) => {
     <Fragment>
       <header className={classes.header}>
         <h1>Gallery</h1>
-        <Button shower={props.onShowAuth} />
+        <Button token={props.token} setToken={props.setToken} shower={props.onShowAuth} />
       </header>
       <div className={classes["main-image"]}>
         <img src={galleryImg} alt="Pictures on the wall" />

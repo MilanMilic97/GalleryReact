@@ -27,7 +27,7 @@ const Create = (props) => {
 
       fetch("http://localhost:59783/api/pictures/", {
         method: "POST",
-        headers: { "Content-type": "application/json", Accept: "application/json" },
+        headers: { "Content-type": "application/json", Accept: "application/json", Authorization: `Bearer ${sessionStorage.getItem("token")}` },
         body: JSON.stringify(regInfo),
       }).then(() => props.loadAgain());
       handleClear();
@@ -115,7 +115,7 @@ const Create = (props) => {
 
     fetch("http://localhost:59783/api/pictures/" + props.fillCreate.Id, {
       method: "PUT",
-      headers: { "Content-type": "application/json", Accept: "application/json" },
+      headers: { "Content-type": "application/json", Accept: "application/json", Authorization: `Bearer ${sessionStorage.getItem("token")}` },
       body: JSON.stringify(regInfo),
     }).then(() => props.loadAgain());
 

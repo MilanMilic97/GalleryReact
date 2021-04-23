@@ -12,14 +12,17 @@ const Table = (props) => {
         setPictures(pictures);
       });
     }
+    // eslint-disable-next-line
   }, [gallery, contrVar]);
 
+  console.log("ovo je token u tejblu" + props.token);
   const handleDelete = (event) => {
     fetch("http://localhost:59783/api/pictures/" + event.target.value, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
     }).then(() => loadAgain());
   };
@@ -30,6 +33,7 @@ const Table = (props) => {
       headers: {
         "Content-type": "application/json",
         Accept: "application/json",
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
     })
       .then((res) => res.json())
@@ -49,8 +53,8 @@ const Table = (props) => {
                 <th>Price</th>
                 <th>Year</th>
                 <th>GalleryName</th>
-                <th>Delete</th>
-                <th>Edit</th>
+                {props.token !== null && <th>Delete</th>}
+                {props.token !== null && <th>Edit</th>}
               </tr>
               {pictures.map((picture) => (
                 <tr key={picture.Id}>
@@ -59,16 +63,20 @@ const Table = (props) => {
                   <td>{picture.Price}</td>
                   <td>{picture.Year}</td>
                   <td>{picture.GalleryName}</td>
-                  <td>
-                    <button className="btn" value={picture.Id} onClick={handleDelete}>
-                      Delete
-                    </button>
-                  </td>
-                  <td>
-                    <button className="btn" value={picture.Id} onClick={handleEdit}>
-                      Edit
-                    </button>
-                  </td>
+                  {props.token !== null && (
+                    <td>
+                      <button className="btn" value={picture.Id} onClick={handleDelete}>
+                        Delete
+                      </button>
+                    </td>
+                  )}
+                  {props.token !== null && (
+                    <td>
+                      <button className="btn" value={picture.Id} onClick={handleEdit}>
+                        Edit
+                      </button>
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>

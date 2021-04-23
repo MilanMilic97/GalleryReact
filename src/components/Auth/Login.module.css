@@ -30,8 +30,7 @@
 }
 
 .input {
-  margin-left: 20%;
-  display: flex;
+  width: 70%;
   align-items: center;
   margin-bottom: 0.5rem;
 }
@@ -52,6 +51,10 @@
   padding-left: 0.5rem;
 }
 
+.input p {
+  color: red;
+}
+
 .regBtn button {
   margin-left: 0;
   padding: 9px;
@@ -64,4 +67,8 @@
   border-color: white;
   font-weight: bold;
   color: rgb(0, 0, 0);
+}
+
+.actions h4 {
+  margin-bottom: 35px;
 }

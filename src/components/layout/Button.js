@@ -1,27 +1,18 @@
 import { Fragment } from "react";
 import classes from "./Button.module.css";
 const Button = (props) => {
-  //const [hiderReg, setHiderReg] = useState(false);
-
-  //   const handleReg = () => {
-  //     setHiderReg(!hiderReg);
-  //     setHiderDiv(!hiderDiv);
-  //   };
+  console.log(props.token + "ovo je kento");
+  const handleLogout = () => {
+    props.setToken(null);
+    sessionStorage.removeItem("token");
+  };
   return (
     <Fragment>
-      {/* {hiderDiv && ( */}
       <div>
-        <button className={classes.button} onClick={props.shower}>
-          Login
+        <button className={classes.button} onClick={props.token === null ? props.shower : handleLogout}>
+          {props.token === null ? "Login" : "Logout"}
         </button>
-        {/* <button style={{ backgroundColor: "lightblue", color: "black", marginTop: "10px" }} className="btn btn-secondary btn-sm" onClick={handleLog}>
-            Login
-          </button> */}
       </div>
-      {/* )} */}
-
-      {/* {hiderReg && <Registration ret={handleReg} />}
-      {hiderLog && <Login ret={handleLog} />} */}
     </Fragment>
   );
 };
