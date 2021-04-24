@@ -138,6 +138,9 @@ const Create = (props) => {
     handleClear();
   };
 
+  if (props.token === null) {
+    handleCancel();
+  }
   return (
     <center>
       <div id="container" className={classes.create}>

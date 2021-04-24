@@ -52,7 +52,7 @@ const Login = (props) => {
       setValPass("Password is required!");
       valSuccess = false;
     } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/)) {
-      setValPass("Invalid password");
+      setValPass("Invalid password!");
       valSuccess = false;
     } else {
       setValPass("");

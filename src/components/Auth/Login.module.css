@@ -52,6 +52,7 @@
 }
 
 .input p {
+  clear: both;
   color: red;
 }
 

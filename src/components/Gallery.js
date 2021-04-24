@@ -55,7 +55,7 @@ const Gallery = () => {
       <Header token={token} setToken={setToken} onShowAuth={showLog} />
       <WelcomeNote email={email} token={token} create={setShowCreate} gallerySelected={setSelectedGallery} gallery={selectedGallery} />
       {selectedGallery !== undefined && <Table token={token} pictures={pictures} setPictures={setPictures} loadAgain={loadTable} contrVar={contrVar} setForEdit={setPictureForEdit} gallery={selectedGallery} showEdit={setShowCreate} />}
-      {showCreate && <Create cancelCreate={setShowCreate} loadAgain={loadTable} fillCreate={pictureForEdit} gallerySelected={selectedGallery} />}
+      {showCreate && <Create token={token} cancelCreate={setShowCreate} loadAgain={loadTable} fillCreate={pictureForEdit} gallerySelected={selectedGallery} />}
     </Fragment>
   );
 };

@@ -1,6 +1,6 @@
 .create div {
   clear: both;
-  height: 50px;
+  height: 70px;
 }
 
 input {
@@ -19,8 +19,9 @@ h3 {
   color: white;
 }
 
-p {
+.create p {
   clear: both;
+  color: red;
 }
 
 .create {
