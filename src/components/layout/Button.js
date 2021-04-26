@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import classes from "./Button.module.css";
+import "./button.css";
 const Button = (props) => {
   console.log(props.token + "ovo je kento");
   const handleLogout = () => {
@@ -9,7 +9,7 @@ const Button = (props) => {
   return (
     <Fragment>
       <div>
-        <button className={classes.button} onClick={props.token === null ? props.shower : handleLogout}>
+        <button className="button" onClick={props.token === null ? props.shower : handleLogout}>
           {props.token === null ? "Login" : "Logout"}
         </button>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "./Create.module.css";
+import "./create.css";
 
 const Create = (props) => {
   const [name, setName] = useState("");
@@ -143,7 +143,7 @@ const Create = (props) => {
   }
   return (
     <center>
-      <div id="container" className={classes.create}>
+      <div id="container" className="create">
         <h3>{createEditBTN ? "Create" : "Edit"}</h3>
         <div style={{ marginTop: "40px" }}>
           <label>Name:</label>
@@ -167,20 +167,20 @@ const Create = (props) => {
         </div>
         <div style={{ marginTop: "30px", marginBottom: "20px" }}>
           {!createEditBTN && (
-            <button className={classes.btnCancel} onClick={handleReturn}>
+            <button className="btnCancel" onClick={handleReturn}>
               Return
             </button>
           )}
           {createEditBTN && (
-            <button className={classes.btnCancel} onClick={handleCancel}>
+            <button className="btnCancel" onClick={handleCancel}>
               Cancel
             </button>
           )}
-          <button className={classes.btnClear} onClick={handleClear}>
+          <button className="btnClear" onClick={handleClear}>
             Clear
           </button>
 
-          <button className={classes.btnCreate} onClick={createEditBTN ? handleCreate : handleEdit}>
+          <button className="btnCreate" onClick={createEditBTN ? handleCreate : handleEdit}>
             {createEditBTN ? "Create" : "Confirm"}
           </button>
         </div>

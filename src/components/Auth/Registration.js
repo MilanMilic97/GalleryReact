@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
-import classes from "./Login.module.css";
+import Modal from "./modal";
+import "./login.css";
 
 const Registration = (props) => {
   const [email, setEmail] = useState("");
@@ -76,20 +76,20 @@ const Registration = (props) => {
 
   return (
     <Modal onHideReg={props.onHideRegClose}>
-      <div className={classes.actions}>
+      <div className="actions">
         <center>
           <h4>User registration</h4>
-          <div className={classes.input}>
+          <div className="input">
             <label>E-mail adress:</label>
             <input style={{ marginLeft: "62px" }} type="text" value={email} onChange={handleInputChangeE} />
             <p>{valEmail}</p>
           </div>
-          <div className={classes.input}>
+          <div className="input">
             <label>Password:</label>
             <input style={{ marginLeft: "90px" }} type="password" value={password} onChange={handleInputChangeP} />
             <p>{valPass}</p>
           </div>
-          <div className={classes.input}>
+          <div className="input">
             <label>Confirm password:</label>
             <input style={{ marginLeft: "25px" }} type="password" value={confirmPassword} onChange={handleInputChangeCP} />
             <p>{valConfPass}</p>
@@ -97,7 +97,7 @@ const Registration = (props) => {
           <div style={{ marginTop: "20px" }}>
             <button onClick={props.onHideReg}>Return</button>
             <button onClick={handleRegistration}>Register</button>
-            <p className={classes.regBtn}>{successReg}</p>
+            <p className="regBtn">{successReg}</p>
           </div>
         </center>
       </div>

@@ -1,16 +1,16 @@
 import { Fragment } from "react";
-import Button from "./Button";
+import Button from "./button";
 import galleryImg from "../../assets/gallery.jpg";
-import classes from "./Header.module.css";
+import "./header.css";
 
 const Header = (props) => {
   return (
     <Fragment>
-      <header className={classes.header}>
+      <header className="header">
         <h1>Gallery</h1>
         <Button token={props.token} setToken={props.setToken} shower={props.onShowAuth} />
       </header>
-      <div className={classes["main-image"]}>
+      <div className="main-image">
         <img src={galleryImg} alt="Pictures on the wall" />
       </div>
     </Fragment>

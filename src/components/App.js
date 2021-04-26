@@ -1,13 +1,13 @@
 import React, { Fragment, useState } from "react";
-import Table from "./data/Table";
+import Table from "./data/table";
 // import Registration from "./Registration";
 // import Login from "./Auth";
-import Create from "./functions/Create";
-import Header from "./layout/Header";
-import Login from "./Auth/Login";
-import Registration from "./Auth/Registration";
+import Create from "./functions/create";
+import Header from "./layout/header";
+import Login from "./auth/login";
+import Registration from "./auth/registration";
 //import Menu from "./data/Menu";
-import WelcomeNote from "./layout/WelcomeNote";
+import WelcomeNote from "./layout/welcomeNote";
 
 const Gallery = () => {
   const [portalLogShower, setPortalLogShower] = useState(false);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
-import classes from "./Login.module.css";
+import Modal from "./modal";
+import "./login.css";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -61,15 +61,15 @@ const Login = (props) => {
 
   return (
     <Modal onHideLog={props.onHideLog} info={props.info}>
-      <div className={classes.actions}>
+      <div className="actions">
         <center>
           <h4>User Login</h4>
-          <div className={classes.input}>
+          <div className="input">
             <label>E-mail adress:</label>
             <input type="text" value={email} onChange={handleInputChangeE} />
             <p>{valEmail}</p>
           </div>
-          <div className={classes.input}>
+          <div className="input">
             <label>Password:</label>
             <input style={{ marginLeft: "28px" }} type="password" value={password} onChange={handleInputChangeP} />
             <p>{valPass}</p>
@@ -77,7 +77,7 @@ const Login = (props) => {
           <div style={{ marginTop: "20px" }}>
             <button onClick={props.onHideLog}>Return</button>
             <button onClick={handleLogin}>Log in</button>
-            <p className={classes.regBtn}>
+            <p className="regBtn">
               If you don't have an account, <button onClick={props.showRegDiv}>Register</button>
             </p>
           </div>
